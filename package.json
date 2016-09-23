@@ -1,0 +1,25 @@
+{
+  "name": "com.commontime.cordova.kiosk",
+  "version": "1.0.0",
+  "description": "Commontime cordova kiosk plugin.",
+  "cordova": {
+    "id": "com.commontime.cordova.kiosk",
+    "platforms": [
+      "android"
+    ]
+  }
+  "keywords": [
+    "cordova",
+    "commontime",
+    "cordova-android",
+    "kiosk"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Commontime Ltd",
+  "license": "MIT"
+}
