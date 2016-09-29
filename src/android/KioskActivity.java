@@ -62,6 +62,12 @@ public class KioskActivity extends CordovaActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        setupMainWindowDisplayMode();
+    }
+
+    @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         int action = event.getAction();
         int keyCode = event.getKeyCode();
