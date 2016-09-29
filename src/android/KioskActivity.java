@@ -160,7 +160,6 @@ public class KioskActivity extends CordovaActivity {
 
     private void setupMainWindowDisplayMode() {
         startLockTask();
-        mIsKioskEnabled = true;
         View decorView = setSystemUiVisilityMode();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
