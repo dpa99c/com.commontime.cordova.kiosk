@@ -55,7 +55,7 @@ public class KioskActivity extends CordovaActivity {
                 Toast.makeText(this, "Not device owner", Toast.LENGTH_SHORT).show();
             }
 
-            enableKioskMode(true);
+            setupMainWindowDisplayMode();
 
             checkDrawOverlayPermission();
         }
@@ -158,24 +158,30 @@ public class KioskActivity extends CordovaActivity {
         }
     }
 
-    private void enableKioskMode(boolean enabled) {
-        try {
-            if (enabled) {
-                startLockTask();
-                View decorView = getWindow().getDecorView();
-                decorView.setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-            } else {
-                stopLockTask();
+    private void setupMainWindowDisplayMode() {
+        startLockTask();
+        mIsKioskEnabled = true;
+        View decorView = setSystemUiVisilityMode();
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                setSystemUiVisilityMode(); // Needed to avoid exiting immersive_sticky when keyboard is displayed
             }
-        } catch (Exception e) {
-            // TODO: Log and handle appropriately
-        }
+        });
+    }
+
+    private View setSystemUiVisilityMode() {
+        View decorView = getWindow().getDecorView();
+        int options;
+        options =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
+        decorView.setSystemUiVisibility(options);
+        return decorView;
     }
 }
