@@ -57,6 +57,8 @@ public class KioskActivity extends CordovaActivity {
 
             setupMainWindowDisplayMode();
 
+            startLockTask();
+
             checkDrawOverlayPermission();
         }
     }
@@ -165,7 +167,6 @@ public class KioskActivity extends CordovaActivity {
     }
 
     private void setupMainWindowDisplayMode() {
-        startLockTask();
         View decorView = setSystemUiVisilityMode();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
