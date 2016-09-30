@@ -1,6 +1,6 @@
 {
   "name": "com.commontime.cordova.kiosk",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Commontime cordova kiosk plugin.",
   "cordova": {
     "id": "com.commontime.cordova.kiosk",
