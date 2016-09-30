@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.commontime.cordova.kiosk" 
-        ersion="1.0.4">
+        ersion="1.0.5">
     
     <name>Kiosk</name>
 
