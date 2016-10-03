@@ -55,7 +55,7 @@ public class KioskActivity extends CordovaActivity {
                 Toast.makeText(this, "Not device owner", Toast.LENGTH_SHORT).show();
             }
 
-            //setupMainWindowDisplayMode();
+            setupMainWindowDisplayMode();
 
             startLockTask();
 
