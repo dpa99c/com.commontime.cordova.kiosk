@@ -152,7 +152,7 @@ public class KioskActivity extends CordovaActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
 
         localLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-        localLayoutParams.height = (int) (50 * getResources()
+        localLayoutParams.height = (int) (1 * getResources()
                 .getDisplayMetrics().scaledDensity);
         localLayoutParams.format = PixelFormat.TRANSPARENT;
 
@@ -180,12 +180,12 @@ public class KioskActivity extends CordovaActivity {
         View decorView = getWindow().getDecorView();
         int options;
         options =
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-                        //| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        //| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        //| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                        //| View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                        //| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
         decorView.setSystemUiVisibility(options);
         return decorView;
