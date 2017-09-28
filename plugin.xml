@@ -23,16 +23,38 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             
             <!-- activity to use as launcher - because Cordova app is failing if started while boot -->
-            <activity android:label="@string/activity_name" android:launchMode="singleTop" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:keepScreenOn="true" android:name="com.commontime.plugin.HomeActivity">
+            <activity
+                android:label="@string/activity_name"
+                android:launchMode="singleTask"
+                android:resumeWhilePausing="true"
+                android:stateNotNeeded="true"
+                android:taskAffinity="${applicationId}.home"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:keepScreenOn="true"
+                android:name="com.commontime.plugin.HomeActivity">
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN" />
                     <category android:name="android.intent.category.DEFAULT" />
                     <category android:name="android.intent.category.HOME" />
                 </intent-filter>
             </activity>
-            
+
             <!-- inner activity, replacement of MainActivity with buttons blocked -->
-            <activity android:label="Kiosk Activity" android:launchMode="singleTop" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:keepScreenOn="true" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode" android:windowSoftInputMode="adjustResize" android:name="com.commontime.plugin.KioskActivity">
+            <activity
+                android:label="Kiosk Activity"
+                android:launchMode="singleTask"
+                android:clearTaskOnLaunch="true"
+                android:resumeWhilePausing="true"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:keepScreenOn="true"
+                android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode"
+                android:windowSoftInputMode="adjustResize"
+                android:name="com.commontime.plugin.KioskActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN"/>
+                    <category android:name="android.intent.category.LAUNCHER"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                </intent-filter>
             </activity>
 
             <receiver android:label="@string/app_name" android:name="com.commontime.plugin.AdminReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN">

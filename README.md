@@ -14,4 +14,13 @@ Usage
 
 The kiosk mode is not active by default. It is only activated if the app is set as a launcher once installed on the device. Once this has been done and the device is restarted the app will be launched in a locked down state. On launch the user will be shown how to unlock the app so they can exit it.
 
-To fully lock the device down to the app the plugin fully supports being used alongside setting the app as a device owner introduced in Android Lollipop. Please refer to the link in the section above to learn more about the device owner feature. Using the plugin in this way will provide the benefit of not having instructions shown as how to exit the screen pinning along with removing the home and recent apps button in the navigation bar. 
+To fully lock the device down to the app the plugin fully supports being used alongside setting the app as a device owner introduced in Android Lollipop. Please refer to the link in the section above to learn more about the device owner feature. Using the plugin in this way will provide the benefit of not having instructions shown as how to exit the screen pinning along with removing the home and recent apps button in the navigation bar.
+
+**Provisioning note**  
+The general command to provision the device owner should look like this:  
+`./adb dpm set-device-owner com.yourorg.yourpackage/com.commontime.plugin.AdminReceiver`
+
+Fork Hacks
+==========
+- Adjusted the plugin.xml to handle intents properly for Lenovo tablets.
+- Adjusted HomeActivity.java to support the above intent changes.
